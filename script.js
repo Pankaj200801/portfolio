@@ -342,8 +342,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
 
             case "contact":
+                const directEmail = document.getElementById("bento-email-text")?.textContent?.trim() || "pankajsikheriya21@gmail.com";
                 response = `Contact Information:
-• Email: pankajsikheriya2008@gmail.com
+• Email: ${directEmail}
 • LinkedIn: linkedin.com/in/pankaj-sikheriya-373b50434
 • GitHub: github.com/Pankaj200801`;
                 break;
@@ -383,8 +384,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const quickCopyEmail = document.getElementById("quick-copy-email");
     if (quickCopyEmail) {
         quickCopyEmail.addEventListener("click", () => {
-            const emailText = document.getElementById("bento-email-text")?.textContent || "pankajsikheriya2008@gmail.com";
-            navigator.clipboard.writeText(emailText.trim()).then(() => {
+            const emailText = document.getElementById("bento-email-text")?.textContent?.trim() || "pankajsikheriya21@gmail.com";
+            navigator.clipboard.writeText(emailText).then(() => {
                 showToast("Email address copied to clipboard! 📋");
             }).catch(() => {
                 showToast(`Email: ${emailText}`);

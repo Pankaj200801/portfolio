@@ -7,6 +7,8 @@
     "tagline": "I'm a",
     "availability": "Available for Projects & Hire",
     "resumeUrl": "#",
+    "githubUsername": "Pankaj200801",
+    "email": "pankajsikheriya2008@gmail.com",
     "roles": [
       "Web Developer",
       "Frontend Developer",
@@ -16,16 +18,6 @@
     "heroImage": "assets/hero.jpg",
     "socialLinks": [
       {
-        "name": "Instagram",
-        "icon": "fa-brands fa-instagram",
-        "url": "https://instagram.com"
-      },
-      {
-        "name": "Facebook",
-        "icon": "fa-brands fa-facebook-f",
-        "url": "https://facebook.com"
-      },
-      {
         "name": "LinkedIn",
         "icon": "fa-brands fa-linkedin-in",
         "url": "https://www.linkedin.com/in/pankaj-sikheriya-373b50434?utm_source=share_via&utm_content=profile&utm_medium=member_android"
@@ -34,6 +26,16 @@
         "name": "GitHub",
         "icon": "fa-brands fa-github",
         "url": "https://github.com/Pankaj200801"
+      },
+      {
+        "name": "Instagram",
+        "icon": "fa-brands fa-instagram",
+        "url": "https://instagram.com"
+      },
+      {
+        "name": "Facebook",
+        "icon": "fa-brands fa-facebook-f",
+        "url": "https://facebook.com"
       }
     ]
   },
@@ -71,6 +73,18 @@
     { "label": "Projects", "href": "#projects" },
     { "label": "Contact", "href": "#contact" }
   ],
+  "bento": {
+    "location": "Bhopal, Madhya Pradesh, India",
+    "timezone": "IST (UTC+5:30)",
+    "currentDegree": "B.Tech in Computer Science & Engineering (2025 - 2028)",
+    "college": "Radharaman Institute of Technology & Science, Bhopal",
+    "currentFocus": [
+      "Full-Stack Web Development",
+      "Data Structures & Algorithms",
+      "Python Scripting & Automation",
+      "Modern UI/UX & Responsive Web Apps"
+    ]
+  },
   "about": {
     "title": "About me",
     "content": "I am currently pursuing B.Tech in <span class=\"highlight\">Computer Science & Engineering</span> from Radharaman Institute of Technology & Science, Bhopal. My journey in this field has equipped me with a basic foundation in C programming and Python . Currently,my focus is on <span class=\"highlight\">web development</span> , where I am honing my skills in HTML, CSS, PHP,and MySQL . I believe in learning by doing, and my portfolio is a testament to this approach."
@@ -97,34 +111,53 @@
   },
   "skills": {
     "title": "Skills",
+    "categories": [
+      { "id": "all", "label": "All Skills" },
+      { "id": "frontend", "label": "Frontend" },
+      { "id": "backend", "label": "Backend" },
+      { "id": "database", "label": "Database" },
+      { "id": "language", "label": "Languages" }
+    ],
     "items": [
       {
         "title": "HTML & CSS",
+        "category": "frontend",
+        "proficiency": "Advanced",
         "icon": "fa-brands fa-html5",
         "description": "Learned the basics of web design and styling using HTML and CSS"
       },
       {
         "title": "JavaScript",
+        "category": "frontend",
+        "proficiency": "Proficient",
         "icon": "fa-brands fa-js",
         "description": "Gained proficiency in JavaScript for interactive and dynamic web applications"
       },
       {
         "title": "MySQL",
+        "category": "database",
+        "proficiency": "Intermediate",
         "icon": "fa-solid fa-database",
         "description": "Gained expertise in relational databases, data management, and SQL queries with MySQL"
       },
       {
         "title": "PHP",
+        "category": "backend",
+        "proficiency": "Intermediate",
         "icon": "fa-brands fa-php",
         "description": "Developed server-side web applications and dynamic content management"
       },
       {
         "title": "C Programming",
+        "category": "language",
+        "proficiency": "Core",
         "icon": "fa-solid fa-code",
         "description": "Learned low-level programming concepts, memory management, and system operations using C"
       },
       {
         "title": "PYTHON",
+        "category": "language",
+        "proficiency": "Versatile",
         "icon": "fa-brands fa-python",
         "description": "Built versatile applications with Python, focusing on scripting, and automation"
       }
@@ -143,11 +176,11 @@
       },
       {
         "title": "Interactive Cyber Portfolio",
-        "description": "Dynamic developer portfolio driven entirely by external JSON data with ambient particle canvas and reactive glassmorphism.",
-        "tags": ["HTML5", "CSS3", "JavaScript", "JSON"],
+        "description": "Dynamic developer portfolio driven entirely by external JSON data with ambient particle canvas, Bento grid, and spotlight cards.",
+        "tags": ["HTML5", "CSS3", "JavaScript", "JSON", "Spotlight UI"],
         "icon": "fa-solid fa-laptop-code",
         "githubUrl": "https://github.com/Pankaj200801/portfolio",
-        "liveUrl": "#"
+        "liveUrl": "https://pankaj200801.github.io/portfolio/"
       },
       {
         "title": "Python Automation & Scripting Suite",

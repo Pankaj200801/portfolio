@@ -12,7 +12,7 @@
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -81,17 +81,17 @@
 
                 <!-- Social Links -->
                 <div class="social-links" id="hero-socials">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
                     <a href="https://www.linkedin.com/in/pankaj-sikheriya-373b50434?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
                     <a href="https://github.com/Pankaj200801" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
                         <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
                     </a>
                 </div>
             </div>
@@ -125,17 +125,95 @@
         </div>
     </section>
 
-    <!-- ================= ABOUT SECTION ================= -->
+    <!-- ================= ABOUT BENTO GRID SECTION ================= -->
     <section id="about" class="section about-section reveal">
         <div class="heading-wrapper">
-            <h2 class="heading" id="about-heading">About me</h2>
+            <h2 class="heading" id="about-heading">About <span class="highlight">Me</span></h2>
             <div class="heading-underline"></div>
         </div>
 
-        <div class="about-content" id="about-content">
-            <p>
-                I am currently pursuing B.Tech in <span class="highlight">Computer Science & Engineering</span> from Radharaman Institute of Technology & Science, Bhopal. My journey in this field has equipped me with a basic foundation in C programming and Python . Currently,my focus is on <span class="highlight">web development</span> , where I am honing my skills in HTML, CSS, PHP,and MySQL . I believe in learning by doing, and my portfolio is a testament to this approach.
-            </p>
+        <div class="bento-grid" id="about-bento">
+            <!-- Bento Bio Tile -->
+            <div class="spotlight-card bento-bio">
+                <div>
+                    <div class="bento-tag">
+                        <i class="fa-solid fa-terminal"></i> Background &amp; Vision
+                    </div>
+                    <div id="about-content">
+                        <p>
+                            I am currently pursuing B.Tech in <span class="highlight">Computer Science & Engineering</span> from Radharaman Institute of Technology & Science, Bhopal. My journey in this field has equipped me with a strong foundation in C programming, Python, and modern software development. Currently, my core focus is on <span class="highlight">full-stack web development</span>, where I hone my craft in HTML, CSS, JavaScript, PHP, and MySQL. I believe in learning by building real-world solutions.
+                        </p>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; font-size: 13.5px; color: var(--text-muted);">
+                    <i class="fa-solid fa-graduation-cap" style="color: var(--cyan); margin-right: 6px;"></i>
+                    <span id="bento-college">Radharaman Institute of Technology & Science, Bhopal</span>
+                </div>
+            </div>
+
+            <!-- Bento Clock & Location Tile -->
+            <div class="spotlight-card bento-clock-card">
+                <div class="bento-clock-header">
+                    <i class="fa-solid fa-location-dot" style="color: var(--cyan);"></i> Base &amp; Time
+                </div>
+                <div>
+                    <div class="live-time-display" id="live-clock">--:--:-- IST</div>
+                    <div class="live-location-text">
+                        <span>Bhopal, Madhya Pradesh, India</span>
+                    </div>
+                </div>
+                <div style="font-size: 12.5px; color: var(--text-muted);">
+                    Timezone: <span style="color: var(--cyan);">IST (UTC+5:30)</span>
+                </div>
+            </div>
+
+            <!-- Bento Focus Tile -->
+            <div class="spotlight-card bento-focus">
+                <h3><i class="fa-solid fa-crosshairs" style="color: var(--cyan);"></i> Current Technical Focus</h3>
+                <div class="focus-tags" id="focus-tags-list">
+                    <span class="focus-pill"><i class="fa-solid fa-code"></i> Full-Stack Web Development</span>
+                    <span class="focus-pill"><i class="fa-solid fa-brain"></i> Data Structures &amp; Algorithms</span>
+                    <span class="focus-pill"><i class="fa-solid fa-gears"></i> Python Automation</span>
+                    <span class="focus-pill"><i class="fa-solid fa-mobile-screen"></i> Modern Responsive UI/UX</span>
+                </div>
+            </div>
+
+            <!-- Bento Quick Contact Tile -->
+            <div class="spotlight-card bento-contact">
+                <div>
+                    <h3><i class="fa-solid fa-bolt" style="color: var(--cyan);"></i> Direct Connect</h3>
+                    <p style="font-size: 13.5px; color: var(--text-dim); margin-bottom: 15px;">
+                        Have a project or opportunity? Click below to copy my direct email.
+                    </p>
+                </div>
+                <div class="email-copy-box" id="quick-copy-email" title="Click to copy email">
+                    <span class="email-text" id="bento-email-text">pankajsikheriya2008@gmail.com</span>
+                    <i class="fa-regular fa-copy copy-btn-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Developer Terminal (CLI Widget) -->
+        <div class="terminal-wrapper reveal">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-controls">
+                        <span class="term-dot term-dot-red"></span>
+                        <span class="term-dot term-dot-yellow"></span>
+                        <span class="term-dot term-dot-green"></span>
+                    </div>
+                    <div class="terminal-title">pankaj@portfolio: ~ (interactive cli)</div>
+                    <div style="width: 40px;"></div>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="terminal-output" id="terminal-output">Pankaj Sikheriya Interactive Developer Terminal [Version 2.4.0]
+Type <span class="prompt-accent">'help'</span> for available commands, or try <span class="prompt-accent">'bio'</span>, <span class="prompt-accent">'skills'</span>, <span class="prompt-accent">'projects'</span>, <span class="prompt-accent">'contact'</span>.</div>
+                    <div class="terminal-input-line">
+                        <span class="terminal-prompt">pankaj@dev:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command (e.g. 'help')..." autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -147,19 +225,19 @@
         </div>
 
         <div class="timeline-list" id="education-list">
-            <div class="timeline-card">
+            <div class="spotlight-card timeline-card">
                 <div class="card-year">2022</div>
                 <div class="card-title">High School</div>
                 <div class="card-desc">Govt. Bajrang Das Higher Secondary School</div>
             </div>
 
-            <div class="timeline-card">
+            <div class="spotlight-card timeline-card">
                 <div class="card-year">2025</div>
                 <div class="card-title">Diploma</div>
                 <div class="card-desc">Dr. Bhim Rao Ambedkar Polytechnic College Gwalior</div>
             </div>
 
-            <div class="timeline-card">
+            <div class="spotlight-card timeline-card">
                 <div class="card-year">2028</div>
                 <div class="card-title">B. Tech (Currently Pursuing)</div>
                 <div class="card-desc">Radharaman Institute of Technology & Science, Bhopal, Madhya Pradesh, India</div>
@@ -167,53 +245,68 @@
         </div>
     </section>
 
-    <!-- ================= SKILLS SECTION ================= -->
+    <!-- ================= SKILLS SECTION WITH FILTERS ================= -->
     <section id="skills" class="section skills-section reveal">
         <div class="heading-wrapper">
-            <h2 class="heading" id="skills-heading">Skills</h2>
+            <h2 class="heading" id="skills-heading">Skills &amp; <span class="highlight">Expertise</span></h2>
             <div class="heading-underline"></div>
         </div>
 
+        <!-- Skills Filter Tabs -->
+        <div class="skills-filter-container" id="skills-filters">
+            <button class="skill-filter-btn active" data-filter="all">All Skills</button>
+            <button class="skill-filter-btn" data-filter="frontend">Frontend</button>
+            <button class="skill-filter-btn" data-filter="backend">Backend</button>
+            <button class="skill-filter-btn" data-filter="database">Database</button>
+            <button class="skill-filter-btn" data-filter="language">Languages</button>
+        </div>
+
         <div class="skills-list" id="skills-list">
-            <div class="skill-card">
+            <div class="spotlight-card skill-card" data-category="frontend">
                 <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
-                <div class="skill-name">HTML & CSS</div>
+                <div class="skill-name">HTML &amp; CSS</div>
+                <div class="skill-badge">Advanced</div>
                 <div class="skill-desc">Learned the basics of web design and styling using HTML and CSS</div>
             </div>
 
-            <div class="skill-card">
+            <div class="spotlight-card skill-card" data-category="frontend">
                 <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
                 <div class="skill-name">JavaScript</div>
+                <div class="skill-badge">Proficient</div>
                 <div class="skill-desc">Gained proficiency in JavaScript for interactive and dynamic web applications</div>
             </div>
 
-            <div class="skill-card">
+            <div class="spotlight-card skill-card" data-category="database">
                 <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
                 <div class="skill-name">MySQL</div>
+                <div class="skill-badge">Intermediate</div>
                 <div class="skill-desc">Gained expertise in relational databases, data management, and SQL queries with MySQL</div>
             </div>
 
-            <div class="skill-card">
+            <div class="spotlight-card skill-card" data-category="backend">
                 <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
                 <div class="skill-name">PHP</div>
+                <div class="skill-badge">Intermediate</div>
                 <div class="skill-desc">Developed server-side web applications and dynamic content management</div>
             </div>
 
-            <div class="skill-card">
+            <div class="spotlight-card skill-card" data-category="language">
                 <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
                 <div class="skill-name">C Programming</div>
+                <div class="skill-badge">Core</div>
                 <div class="skill-desc">Learned low-level programming concepts, memory management, and system operations using C</div>
             </div>
 
-            <div class="skill-card">
+            <div class="spotlight-card skill-card" data-category="language">
                 <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
                 <div class="skill-name">PYTHON</div>
+                <div class="skill-badge">Versatile</div>
                 <div class="skill-desc">Built versatile applications with Python, focusing on scripting, and automation</div>
             </div>
         </div>
     </section>
 
-    <!-- ================= FEATURED PROJECTS SECTION ================= -->
+    <!-- ================= FEATURED PROJECTS & GITHUB INTEGRATION ================= -->
     <section id="projects" class="section projects-section reveal">
         <div class="heading-wrapper">
             <h2 class="heading">Featured <span class="highlight">Projects</span></h2>
@@ -221,7 +314,7 @@
         </div>
 
         <div class="projects-grid" id="projects-grid">
-            <div class="project-card">
+            <div class="spotlight-card project-card">
                 <div>
                     <div class="project-header">
                         <div class="project-icon-box">
@@ -247,7 +340,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="spotlight-card project-card">
                 <div>
                     <div class="project-header">
                         <div class="project-icon-box">
@@ -257,13 +350,13 @@
                             <a href="https://github.com/Pankaj200801/portfolio" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="GitHub Code">
                                 <i class="fa-brands fa-github"></i>
                             </a>
-                            <a href="#" class="project-link-btn" aria-label="Live Demo">
+                            <a href="https://pankaj200801.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Live Demo">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>
                     <div class="project-title">Interactive Cyber Portfolio</div>
-                    <div class="project-desc">Dynamic developer portfolio driven entirely by external JSON data with ambient particle canvas and reactive glassmorphism.</div>
+                    <div class="project-desc">Dynamic developer portfolio driven entirely by external JSON data with ambient particle canvas, Bento grid, and spotlight cards.</div>
                 </div>
                 <div class="project-tags">
                     <span class="project-tag">HTML5</span>
@@ -273,7 +366,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="spotlight-card project-card">
                 <div>
                     <div class="project-header">
                         <div class="project-icon-box">
@@ -288,7 +381,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="project-title">Python Automation & Scripting Suite</div>
+                    <div class="project-title">Python Automation &amp; Scripting Suite</div>
                     <div class="project-desc">Versatile automation tool for file batch renaming, system maintenance, and automated data scraping with Python.</div>
                 </div>
                 <div class="project-tags">
@@ -297,6 +390,36 @@
                     <span class="project-tag">Automation</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Live GitHub Profile Card -->
+        <div class="spotlight-card github-stat-card reveal" id="github-stat-card">
+            <div class="github-user-info">
+                <img id="github-avatar" class="github-avatar" src="https://avatars.githubusercontent.com/Pankaj200801" alt="GitHub Avatar" onerror="this.src='assets/hero.jpg'">
+                <div class="github-meta">
+                    <h4 id="github-name">Pankaj Sikheriya</h4>
+                    <p id="github-login">@Pankaj200801 • Open Source Contributor</p>
+                </div>
+            </div>
+
+            <div class="github-stats-row">
+                <div class="github-stat-col">
+                    <span id="github-repo-count">--</span>
+                    <label>Public Repos</label>
+                </div>
+                <div class="github-stat-col">
+                    <span id="github-followers-count">--</span>
+                    <label>Followers</label>
+                </div>
+                <div class="github-stat-col">
+                    <span id="github-status">Active</span>
+                    <label>Status</label>
+                </div>
+            </div>
+
+            <a href="https://github.com/Pankaj200801" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 22px; font-size: 13.5px;">
+                <i class="fa-brands fa-github"></i> View GitHub
+            </a>
         </div>
     </section>
 
@@ -330,17 +453,17 @@
     <!-- ================= FOOTER ================= -->
     <footer>
         <div class="footer-socials" id="footer-socials">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
             <a href="https://www.linkedin.com/in/pankaj-sikheriya-373b50434?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
                 <i class="fa-brands fa-linkedin-in"></i>
             </a>
             <a href="https://github.com/Pankaj200801" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
             </a>
         </div>
 

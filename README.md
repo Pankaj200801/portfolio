@@ -6,17 +6,18 @@ A sleek, responsive, and high-performance personal portfolio website built with 
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-- **Dynamic Data Layer (`info.json`)**: All personal information, social links, education history, skills, and projects are centralized in `info.json` for easy updates without touching HTML/CSS.
-- **Ambient Cyber Canvas**: Interactive HTML5 particle network that drifts and responds dynamically to mouse movement.
-- **Animated Typewriter Subtitle**: Rotating roles with blinking cursor effect.
-- **Live Stats Counter**: Smooth counting animation for key metrics upon scrolling into view.
-- **Interactive Timeline Cards**: Styled with neon cyan vertical strips and pulsing radar dots.
-- **Featured Projects Showcase**: Glassmorphic cards displaying project descriptions, tech stack pills, and GitHub/Demo links.
-- **Interactive Contact Form**: Pill-shaped inputs with interactive status feedback and toast notifications.
-- **Top Scroll Progress & Back to Top**: Visual reading depth indicator and floating return-to-top button.
-- **Fully Responsive**: Optimized for desktop, tablets, and mobile devices with a slide-out hamburger menu.
+- **Linear / Aceternity Spotlight Cards**: Radial cursor illumination effect following exact mouse coordinates across all cards.
+- **Interactive Developer CLI Terminal**: Embedded terminal window with commands (`help`, `bio`, `skills`, `projects`, `contact`, `github`, `date`, `clear`) simulating a real developer environment.
+- **About Bento Grid**: High-density 2026 bento layout featuring live India Standard Time (IST) digital clock, college education snapshot, and quick-copy email badge.
+- **Category-Filtered Skills**: Real-time filtering across Frontend, Backend, Tools, and Core CS with animated proficiency meters.
+- **Live GitHub API Stats**: Real-time profile card fetching live repository counts, followers, and bio directly from the GitHub REST API (`@Pankaj200801`).
+- **Dynamic Data Layer (`info.json`)**: All personal details, bio, education, skills, projects, and contact info centralized in `info.json` with cache-busting instant updates.
+- **Ambient Cyber Particle Canvas**: HTML5 Canvas particle network that drifts and repels dynamically based on cursor proximity.
+- **1-Click Copy & Cyber Toast**: Clickable email badge with instant clipboard copy and floating cyberpunk notification.
+- **Top Scroll Progress & Back to Top**: Dynamic reading depth indicator and smooth floating back-to-top button.
+- **100% Responsive & Offline-Ready**: Flawless experience across mobile, tablet, and ultra-wide screens with full semantic fallback if JavaScript is disabled.
 
 ---
 

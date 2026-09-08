@@ -1,12 +1,35 @@
 /**
- * Gaurav Mahour Portfolio Script
- * Next-Level Interactive Developer Portfolio
- * Powered by info.json data hydration, ambient particle canvas, stats counters, and smooth animations.
+ * Pankaj Sikheriya Portfolio Script
+ * 2026 Developer Portfolio Standard
+ * Features:
+ * - Spotlight Cards (Linear / Aceternity cursor glow)
+ * - Interactive Developer Terminal (CLI Widget)
+ * - Live Timezone Clock
+ * - One-Click Clipboard Copy
+ * - Live GitHub Profile & Repos API
+ * - Skill Category Filters
+ * - Ambient Particle Canvas
+ * - Typewriter & Animated Counters
+ * - Dynamic info.json Hydration
  */
 
 document.addEventListener("DOMContentLoaded", () => {
     // ----------------------------------------------------
-    // 1. AMBIENT PARTICLE CANVAS SYSTEM
+    // 1. SPOTLIGHT EFFECT (LINEAR / ACETERNITY CARDS)
+    // ----------------------------------------------------
+    document.addEventListener("mousemove", (e) => {
+        const cards = document.querySelectorAll(".spotlight-card");
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        });
+    });
+
+    // ----------------------------------------------------
+    // 2. AMBIENT PARTICLE CANVAS SYSTEM
     // ----------------------------------------------------
     const canvas = document.getElementById("particle-canvas");
     if (canvas) {
@@ -50,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (this.y < 0) this.y = canvas.height;
                 if (this.y > canvas.height) this.y = 0;
 
-                // Mouse interactivity
                 if (mouse.x != null && mouse.y != null) {
                     let dx = mouse.x - this.x;
                     let dy = mouse.y - this.y;
@@ -74,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        const particleCount = Math.min(Math.floor(window.innerWidth / 20), 75);
+        const particleCount = Math.min(Math.floor(window.innerWidth / 22), 70);
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
@@ -113,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ----------------------------------------------------
-    // 2. SCROLL PROGRESS INDICATOR
+    // 3. SCROLL PROGRESS INDICATOR
     // ----------------------------------------------------
     const scrollProgressBar = document.getElementById("scroll-progress");
     window.addEventListener("scroll", () => {
@@ -124,7 +146,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ----------------------------------------------------
-    // 3. TYPEWRITER EFFECT
+    // 4. LIVE TIMEZONE CLOCK (IST)
+    // ----------------------------------------------------
+    const liveClockEl = document.getElementById("live-clock");
+    function updateLiveClock() {
+        if (!liveClockEl) return;
+        const now = new Date();
+        const options = {
+            timeZone: "Asia/Kolkata",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+        };
+        const timeString = new Intl.DateTimeFormat("en-US", options).format(now);
+        liveClockEl.textContent = `${timeString} IST`;
+    }
+    updateLiveClock();
+    setInterval(updateLiveClock, 1000);
+
+    // ----------------------------------------------------
+    // 5. TYPEWRITER EFFECT
     // ----------------------------------------------------
     let typewriterRoles = [
         "Web Developer",
@@ -168,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     typeWriterEffect();
 
     // ----------------------------------------------------
-    // 4. ANIMATED STATS COUNTER
+    // 6. ANIMATED STATS COUNTER
     // ----------------------------------------------------
     let statsAnimated = false;
     function initStatsCounter() {
@@ -206,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initStatsCounter();
 
     // ----------------------------------------------------
-    // 5. SCROLL REVEAL OBSERVER
+    // 7. SCROLL REVEAL OBSERVER
     // ----------------------------------------------------
     function initScrollReveal() {
         const reveals = document.querySelectorAll(".reveal");
@@ -224,7 +266,190 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollReveal();
 
     // ----------------------------------------------------
-    // 6. BACK TO TOP BUTTON
+    // 8. INTERACTIVE DEVELOPER TERMINAL (CLI WIDGET)
+    // ----------------------------------------------------
+    const terminalInput = document.getElementById("terminal-input");
+    const terminalOutput = document.getElementById("terminal-output");
+    const terminalBody = document.getElementById("terminal-body");
+
+    let commandHistory = [];
+    let historyIndex = -1;
+
+    if (terminalInput && terminalOutput) {
+        terminalInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                const command = terminalInput.value.trim();
+                if (command.length > 0) {
+                    commandHistory.push(command);
+                    historyIndex = commandHistory.length;
+                    handleTerminalCommand(command);
+                    terminalInput.value = "";
+                }
+            } else if (e.key === "ArrowUp") {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    terminalInput.value = commandHistory[historyIndex] || "";
+                }
+            } else if (e.key === "ArrowDown") {
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    terminalInput.value = commandHistory[historyIndex] || "";
+                } else {
+                    historyIndex = commandHistory.length;
+                    terminalInput.value = "";
+                }
+            }
+        });
+    }
+
+    function handleTerminalCommand(rawCmd) {
+        const cmd = rawCmd.toLowerCase();
+        let response = "";
+
+        switch (cmd) {
+            case "help":
+                response = `Available commands:
+  • bio       - View my background & current university details
+  • skills    - List core programming languages & technologies
+  • projects  - Explore featured projects & live links
+  • contact   - Get my email, LinkedIn, and GitHub links
+  • github    - Check live GitHub profile & activity
+  • date      - Print current time in Bhopal (IST)
+  • clear     - Clear the terminal screen`;
+                break;
+
+            case "bio":
+            case "about":
+                response = `Pankaj Sikheriya:
+• Degree: B.Tech in Computer Science & Engineering (2025 - 2028)
+• College: Radharaman Institute of Technology & Science, Bhopal
+• Passion: Building responsive, high-performance web applications and automation tools.`;
+                break;
+
+            case "skills":
+                response = `Skills Matrix:
+• Frontend: HTML5, CSS3, Modern JavaScript
+• Backend: PHP, Python
+• Databases: MySQL, Relational Database Modeling
+• Core: C Programming, Data Structures, Git`;
+                break;
+
+            case "projects":
+                response = `Featured Projects:
+1. Student Management Portal (PHP, MySQL)
+2. Interactive Cyber Portfolio (HTML, CSS, JS, JSON)
+3. Python Automation & Scripting Suite (Python, SQL)`;
+                break;
+
+            case "contact":
+                response = `Contact Information:
+• Email: pankajsikheriya2008@gmail.com
+• LinkedIn: linkedin.com/in/pankaj-sikheriya-373b50434
+• GitHub: github.com/Pankaj200801`;
+                break;
+
+            case "github":
+                response = `Navigating to https://github.com/Pankaj200801 ...`;
+                window.open("https://github.com/Pankaj200801", "_blank");
+                break;
+
+            case "date":
+            case "time":
+                const now = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+                response = `Current IST Time: ${now}`;
+                break;
+
+            case "clear":
+                terminalOutput.innerHTML = "";
+                return;
+
+            default:
+                response = `Command not found: '${rawCmd}'. Type 'help' to see available commands.`;
+        }
+
+        const newLine = document.createElement("div");
+        newLine.style.marginTop = "10px";
+        newLine.innerHTML = `<span class="prompt-accent">pankaj@dev:~$</span> ${rawCmd}\n${response}`;
+        terminalOutput.appendChild(newLine);
+
+        if (terminalBody) {
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+    }
+
+    // ----------------------------------------------------
+    // 9. ONE-CLICK EMAIL COPY
+    // ----------------------------------------------------
+    const quickCopyEmail = document.getElementById("quick-copy-email");
+    if (quickCopyEmail) {
+        quickCopyEmail.addEventListener("click", () => {
+            const emailText = document.getElementById("bento-email-text")?.textContent || "pankajsikheriya2008@gmail.com";
+            navigator.clipboard.writeText(emailText.trim()).then(() => {
+                showToast("Email address copied to clipboard! 📋");
+            }).catch(() => {
+                showToast(`Email: ${emailText}`);
+            });
+        });
+    }
+
+    // ----------------------------------------------------
+    // 10. SKILL CATEGORY FILTERING
+    // ----------------------------------------------------
+    const filterBtns = document.querySelectorAll(".skill-filter-btn");
+    const skillCards = document.querySelectorAll(".skill-card");
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filter = btn.getAttribute("data-filter");
+            skillCards.forEach(card => {
+                const category = card.getAttribute("data-category");
+                if (filter === "all" || category === filter) {
+                    card.style.display = "flex";
+                    card.style.opacity = "1";
+                    card.style.transform = "scale(1)";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+
+    // ----------------------------------------------------
+    // 11. LIVE GITHUB PROFILE & REPOS API
+    // ----------------------------------------------------
+    function fetchGitHubStats(username = "Pankaj200801") {
+        fetch(`https://api.github.com/users/${username}`)
+            .then(res => {
+                if (!res.ok) throw new Error("GitHub API rate-limited or unavailable");
+                return res.json();
+            })
+            .then(data => {
+                const repoEl = document.getElementById("github-repo-count");
+                const followersEl = document.getElementById("github-followers-count");
+                const avatarEl = document.getElementById("github-avatar");
+                const loginEl = document.getElementById("github-login");
+
+                if (repoEl && data.public_repos !== undefined) repoEl.textContent = data.public_repos;
+                if (followersEl && data.followers !== undefined) followersEl.textContent = data.followers;
+                if (avatarEl && data.avatar_url) avatarEl.src = data.avatar_url;
+                if (loginEl) loginEl.textContent = `@${data.login} • Open Source Contributor`;
+            })
+            .catch(err => {
+                console.log("GitHub API fallback active:", err);
+                const repoEl = document.getElementById("github-repo-count");
+                const followersEl = document.getElementById("github-followers-count");
+                if (repoEl) repoEl.textContent = "5+";
+                if (followersEl) followersEl.textContent = "1+";
+            });
+    }
+
+    fetchGitHubStats("Pankaj200801");
+
+    // ----------------------------------------------------
+    // 12. BACK TO TOP BUTTON
     // ----------------------------------------------------
     const backToTopBtn = document.getElementById("back-to-top");
     window.addEventListener("scroll", () => {
@@ -243,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ----------------------------------------------------
-    // 7. MOBILE MENU TOGGLE
+    // 13. MOBILE MENU TOGGLE
     // ----------------------------------------------------
     const menuToggle = document.getElementById("menu-toggle");
     const navList = document.getElementById("nav-list");
@@ -265,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ----------------------------------------------------
-    // 8. TOAST NOTIFICATION UTILITY
+    // 14. TOAST NOTIFICATION UTILITY
     // ----------------------------------------------------
     function showToast(message) {
         const container = document.getElementById("toast-container");
@@ -284,7 +509,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ----------------------------------------------------
-    // 9. DYNAMIC DATA HYDRATION FROM info.json
+    // 15. DYNAMIC DATA HYDRATION FROM info.json
     // ----------------------------------------------------
     fetch("./info.json?t=" + new Date().getTime(), { cache: "no-store" })
         .then(response => {
@@ -303,7 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPortfolioData(data) {
         // 1. Personal & Brand
         if (data.personal) {
-            const { firstName, lastName, greeting, name, tagline, availability, resumeUrl, roles, heroImage, socialLinks } = data.personal;
+            const { firstName, lastName, greeting, name, tagline, availability, resumeUrl, githubUsername, email, roles, heroImage, socialLinks } = data.personal;
 
             if (firstName) {
                 const logoFirst = document.getElementById("logo-first");
@@ -333,6 +558,13 @@ document.addEventListener("DOMContentLoaded", () => {
             if (resumeUrl) {
                 const resumeBtn = document.getElementById("hero-cta-resume");
                 if (resumeBtn) resumeBtn.href = resumeUrl;
+            }
+            if (email) {
+                const emailEl = document.getElementById("bento-email-text");
+                if (emailEl) emailEl.textContent = email;
+            }
+            if (githubUsername) {
+                fetchGitHubStats(githubUsername);
             }
             if (Array.isArray(roles) && roles.length > 0) {
                 typewriterRoles = roles;
@@ -365,7 +597,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // 3. Navigation
+        // 3. Bento Details
+        if (data.bento) {
+            if (data.bento.college) {
+                const collegeEl = document.getElementById("bento-college");
+                if (collegeEl) collegeEl.textContent = data.bento.college;
+            }
+            if (Array.isArray(data.bento.currentFocus)) {
+                const focusList = document.getElementById("focus-tags-list");
+                if (focusList) {
+                    focusList.innerHTML = data.bento.currentFocus.map(tag => `
+                        <span class="focus-pill"><i class="fa-solid fa-code"></i> ${tag}</span>
+                    `).join("");
+                }
+            }
+        }
+
+        // 4. Navigation
         if (Array.isArray(data.navigation)) {
             const navListEl = document.getElementById("nav-list");
             if (navListEl) {
@@ -376,12 +624,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // 4. About Section
+        // 5. About Section
         if (data.about) {
-            if (data.about.title) {
-                const aboutHeading = document.getElementById("about-heading");
-                if (aboutHeading) aboutHeading.textContent = data.about.title;
-            }
             if (data.about.content) {
                 const aboutContent = document.getElementById("about-content");
                 if (aboutContent) {
@@ -390,7 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // 5. Education Section
+        // 6. Education Section
         if (data.education) {
             if (data.education.title) {
                 const eduHeading = document.getElementById("education-heading");
@@ -400,7 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const eduList = document.getElementById("education-list");
                 if (eduList) {
                     eduList.innerHTML = data.education.items.map(item => `
-                        <div class="timeline-card">
+                        <div class="spotlight-card timeline-card">
                             <div class="card-year">${item.year}</div>
                             <div class="card-title">${item.degree}</div>
                             <div class="card-desc">${item.institution}</div>
@@ -410,19 +654,44 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // 6. Skills Section
+        // 7. Skills Section
         if (data.skills) {
             if (data.skills.title) {
                 const skillsHeading = document.getElementById("skills-heading");
-                if (skillsHeading) skillsHeading.textContent = data.skills.title;
+                if (skillsHeading) skillsHeading.innerHTML = `${data.skills.title} &amp; <span class="highlight">Expertise</span>`;
+            }
+            if (Array.isArray(data.skills.categories)) {
+                const filterContainer = document.getElementById("skills-filters");
+                if (filterContainer) {
+                    filterContainer.innerHTML = data.skills.categories.map((cat, idx) => `
+                        <button class="skill-filter-btn ${idx === 0 ? 'active' : ''}" data-filter="${cat.id}">${cat.label}</button>
+                    `).join("");
+
+                    filterContainer.querySelectorAll(".skill-filter-btn").forEach(btn => {
+                        btn.addEventListener("click", () => {
+                            filterContainer.querySelectorAll(".skill-filter-btn").forEach(b => b.classList.remove("active"));
+                            btn.classList.add("active");
+                            const filter = btn.getAttribute("data-filter");
+                            document.querySelectorAll(".skill-card").forEach(card => {
+                                const category = card.getAttribute("data-category");
+                                if (filter === "all" || category === filter) {
+                                    card.style.display = "flex";
+                                } else {
+                                    card.style.display = "none";
+                                }
+                            });
+                        });
+                    });
+                }
             }
             if (Array.isArray(data.skills.items)) {
                 const skillsList = document.getElementById("skills-list");
                 if (skillsList) {
                     skillsList.innerHTML = data.skills.items.map(skill => `
-                        <div class="skill-card">
+                        <div class="spotlight-card skill-card" data-category="${skill.category || 'all'}">
                             ${skill.icon ? `<div class="skill-icon"><i class="${skill.icon}"></i></div>` : ''}
                             <div class="skill-name">${skill.title}</div>
+                            ${skill.proficiency ? `<div class="skill-badge">${skill.proficiency}</div>` : ''}
                             <div class="skill-desc">${skill.description}</div>
                         </div>
                     `).join("");
@@ -430,12 +699,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // 7. Projects Section
+        // 8. Projects Section
         if (data.projects && Array.isArray(data.projects.items)) {
             const projectsGrid = document.getElementById("projects-grid");
             if (projectsGrid) {
                 projectsGrid.innerHTML = data.projects.items.map(proj => `
-                    <div class="project-card">
+                    <div class="spotlight-card project-card">
                         <div>
                             <div class="project-header">
                                 <div class="project-icon-box">
@@ -446,7 +715,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="GitHub Code">
                                             <i class="fa-brands fa-github"></i>
                                         </a>` : ''}
-                                    ${proj.liveUrl ? `
+                                    ${proj.liveUrl && proj.liveUrl !== '#' ? `
                                         <a href="${proj.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Live Demo">
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                         </a>` : ''}
@@ -463,7 +732,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // 8. Contact Section
+        // 9. Contact Section
         if (data.contact) {
             if (data.contact.titlePrefix) {
                 const prefixEl = document.getElementById("contact-title-prefix");
@@ -491,7 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // 9. Footer
+        // 10. Footer
         if (data.footer && Array.isArray(data.footer.navLinks)) {
             const footerNav = document.getElementById("footer-nav");
             if (footerNav) {
@@ -516,7 +785,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ----------------------------------------------------
-    // 10. SMOOTH SCROLLING & SCROLL SPY
+    // 16. SMOOTH SCROLLING & SCROLL SPY
     // ----------------------------------------------------
     function attachNavScrollListeners() {
         document.querySelectorAll('.navbar a[href^="#"], .hero-cta a[href^="#"]').forEach(anchor => {
@@ -539,10 +808,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         behavior: 'smooth'
                     });
 
-                    // Close mobile nav if open
                     if (navList && navList.classList.contains('open')) {
                         navList.classList.remove('open');
-                        const icon = menuToggle.querySelector("i");
+                        const icon = menuToggle?.querySelector("i");
                         if (icon) {
                             icon.classList.remove("fa-xmark");
                             icon.classList.add("fa-bars");
@@ -555,7 +823,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     attachNavScrollListeners();
 
-    // ScrollSpy active link updater
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
@@ -580,7 +847,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ----------------------------------------------------
-    // 11. FORM SUBMISSION
+    // 17. CONTACT FORM SUBMISSION
     // ----------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {

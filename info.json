@@ -195,6 +195,8 @@
   "contact": {
     "titlePrefix": "Contact",
     "titleHighlight": "Me",
+    "recipientEmail": "pankajsikheriya21@gmail.com",
+    "web3FormsAccessKey": "",
     "inputs": [
       { "name": "fullName", "type": "text", "placeholder": "Full Name", "required": true },
       { "name": "email", "type": "email", "placeholder": "Email", "required": true },

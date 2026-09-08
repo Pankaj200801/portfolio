@@ -1143,6 +1143,10 @@ header {
 
 .btn-send {
     align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
     padding: 12px 34px;
     background: var(--cyan);
     color: #000000;
@@ -1155,9 +1159,15 @@ header {
     transition: all 0.3s ease;
 }
 
-.btn-send:hover {
+.btn-send:hover:not(:disabled) {
     box-shadow: 0 0 30px var(--cyan);
     transform: translateY(-2px);
+}
+
+.btn-send:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* ================= FOOTER ================= */

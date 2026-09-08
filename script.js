@@ -520,6 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
+            window.portfolioData = data;
             renderPortfolioData(data);
         })
         .catch(err => {
@@ -757,7 +758,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if (data.contact.submitButtonText) {
                 const btn = document.getElementById("contact-submit-btn");
-                if (btn) btn.textContent = data.contact.submitButtonText;
+                if (btn) btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> <span>${data.contact.submitButtonText}</span>`;
             }
         }
 
@@ -848,28 +849,104 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ----------------------------------------------------
-    // 17. CONTACT FORM SUBMISSION
+    // 17. CONTACT FORM SUBMISSION (REAL EMAIL DELIVERY)
     // ----------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = document.getElementById('contact-submit-btn');
-            const originalText = submitBtn.textContent;
+            const originalHtml = submitBtn ? submitBtn.innerHTML : '<i class="fa-solid fa-paper-plane"></i> <span>Send Message</span>';
 
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Sending...</span>';
+                submitBtn.disabled = true;
+            }
 
-            setTimeout(() => {
-                showToast('Thank you! Your message has been sent successfully.');
-                contactForm.reset();
-                submitBtn.textContent = 'Message Sent! ✓';
+            const formData = new FormData(contactForm);
+            const fullName = (formData.get('fullName') || '').trim();
+            const senderEmail = (formData.get('email') || '').trim();
+            const phoneNumber = (formData.get('phoneNumber') || '').trim();
+            const subject = (formData.get('subject') || '').trim() || `New Portfolio Message from ${fullName || 'Visitor'}`;
+            const message = (formData.get('message') || '').trim();
 
+            const recipientEmail = (window.portfolioData?.contact?.recipientEmail || window.portfolioData?.personal?.email || 'pankajsikheriya21@gmail.com').trim();
+            const web3Key = (window.portfolioData?.contact?.web3FormsAccessKey || '').trim();
+
+            try {
+                let response;
+                if (web3Key) {
+                    // Route via Web3Forms API
+                    response = await fetch("https://api.web3forms.com/submit", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            access_key: web3Key,
+                            name: fullName,
+                            email: senderEmail,
+                            phone: phoneNumber,
+                            subject: subject,
+                            message: message,
+                            from_name: "Portfolio Contact Form"
+                        })
+                    });
+                } else {
+                    // Route via FormSubmit.co AJAX (no registration/key needed)
+                    response = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: fullName,
+                            email: senderEmail,
+                            phone: phoneNumber,
+                            subject: subject,
+                            message: message,
+                            _subject: `⚡ Portfolio Message: ${subject} (${fullName})`,
+                            _template: "table",
+                            _captcha: "false"
+                        })
+                    });
+                }
+
+                const result = await response.json().catch(() => ({ success: response.ok }));
+
+                if (response.ok || result.success === true || result.success === "true") {
+                    showToast(`Thank you, ${fullName || 'there'}! Your message has been sent to Pankaj's inbox. 🚀`);
+                    contactForm.reset();
+                    if (submitBtn) {
+                        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Message Sent!</span>';
+                    }
+                } else if (result.message && result.message.toLowerCase().includes("activation")) {
+                    showToast("First-time activation link sent to owner email! Please verify once. 📬");
+                    contactForm.reset();
+                    if (submitBtn) {
+                        submitBtn.innerHTML = '<i class="fa-solid fa-envelope-circle-check"></i> <span>Activation Sent</span>';
+                    }
+                } else {
+                    throw new Error(result.message || "Failed to deliver message");
+                }
+            } catch (err) {
+                console.warn("Direct transmission issue, triggering email fallback:", err);
+                showToast("Opening your default mail client as fallback... ✉️");
+                const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${fullName}\nEmail: ${senderEmail}\nPhone: ${phoneNumber}\n\nMessage:\n${message}`)}`;
+                window.open(mailtoUrl, '_blank');
+                if (submitBtn) {
+                    submitBtn.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> <span>Opened Email</span>';
+                }
+            } finally {
                 setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, 2500);
-            }, 700);
+                    if (submitBtn) {
+                        submitBtn.innerHTML = originalHtml;
+                        submitBtn.disabled = false;
+                    }
+                }, 3500);
+            }
         });
     }
 });

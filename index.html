@@ -434,7 +434,14 @@ Type <span class="prompt-accent">'help'</span> for available commands, or try <s
         </div>
 
         <div class="contact-container">
-            <form class="contact-form" id="contact-form">
+            <form class="contact-form" id="contact-form" action="https://formsubmit.co/pankajsikheriya21@gmail.com" method="POST">
+                <!-- Anti-spam honeypot -->
+                <input type="text" name="_honey" style="display:none">
+                <!-- Direct configuration -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="⚡ New Portfolio Message from Website">
+
                 <div class="contact-inputs" id="contact-inputs">
                     <input type="text" name="fullName" class="contact-pill-input" placeholder="Full Name" required>
                     <input type="email" name="email" class="contact-pill-input" placeholder="Email" required>
@@ -444,7 +451,9 @@ Type <span class="prompt-accent">'help'</span> for available commands, or try <s
 
                 <div class="contact-message-group">
                     <textarea name="message" id="contact-textarea" class="contact-textarea" placeholder="Your Message" required></textarea>
-                    <button type="submit" id="contact-submit-btn" class="btn-send">Send Message</button>
+                    <button type="submit" id="contact-submit-btn" class="btn-send">
+                        <i class="fa-solid fa-paper-plane"></i> <span>Send Message</span>
+                    </button>
                 </div>
             </form>
         </div>

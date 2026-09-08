@@ -33,7 +33,7 @@
       {
         "name": "GitHub",
         "icon": "fa-brands fa-github",
-        "url": "https://github.com"
+        "url": "https://github.com/Pankaj200801"
       }
     ]
   },
@@ -138,7 +138,7 @@
         "description": "Full-stack web application with role-based access, student database records, grade tracking, and dynamic PDF reporting.",
         "tags": ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
         "icon": "fa-solid fa-graduation-cap",
-        "githubUrl": "https://github.com",
+        "githubUrl": "https://github.com/Pankaj200801",
         "liveUrl": "#"
       },
       {
@@ -146,7 +146,7 @@
         "description": "Dynamic developer portfolio driven entirely by external JSON data with ambient particle canvas and reactive glassmorphism.",
         "tags": ["HTML5", "CSS3", "JavaScript", "JSON"],
         "icon": "fa-solid fa-laptop-code",
-        "githubUrl": "https://github.com",
+        "githubUrl": "https://github.com/Pankaj200801/portfolio",
         "liveUrl": "#"
       },
       {
@@ -154,7 +154,7 @@
         "description": "Versatile automation tool for file batch renaming, system maintenance, and automated data scraping with Python.",
         "tags": ["Python", "SQL", "Automation"],
         "icon": "fa-solid fa-robot",
-        "githubUrl": "https://github.com",
+        "githubUrl": "https://github.com/Pankaj200801",
         "liveUrl": "#"
       }
     ]

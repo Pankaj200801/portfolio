@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ----------------------------------------------------
     // 9. DYNAMIC DATA HYDRATION FROM info.json
     // ----------------------------------------------------
-    fetch("./info.json")
+    fetch("./info.json?t=" + new Date().getTime(), { cache: "no-store" })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

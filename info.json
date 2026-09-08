@@ -1,0 +1,184 @@
+{
+  "personal": {
+    "firstName": "Pankaj",
+    "lastName": "Sikheriya",
+    "greeting": "Hi, It's",
+    "name": "Pankaj",
+    "tagline": "I'm a",
+    "availability": "Available for Projects & Hire",
+    "resumeUrl": "#",
+    "roles": [
+      "Web Developer",
+      "Frontend Developer",
+      "Computer Science Student",
+      "Python Programmer"
+    ],
+    "heroImage": "assets/hero.jpg",
+    "socialLinks": [
+      {
+        "name": "Instagram",
+        "icon": "fa-brands fa-instagram",
+        "url": "https://instagram.com"
+      },
+      {
+        "name": "Facebook",
+        "icon": "fa-brands fa-facebook-f",
+        "url": "https://facebook.com"
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "fa-brands fa-linkedin-in",
+        "url": "https://www.linkedin.com/in/pankaj-sikheriya-373b50434?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+      },
+      {
+        "name": "GitHub",
+        "icon": "fa-brands fa-github",
+        "url": "https://github.com"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "12+",
+      "number": 12,
+      "suffix": "+",
+      "label": "Projects Built"
+    },
+    {
+      "value": "3+",
+      "number": 3,
+      "suffix": "+",
+      "label": "Years Learning"
+    },
+    {
+      "value": "8+",
+      "number": 8,
+      "suffix": "+",
+      "label": "Core Technologies"
+    },
+    {
+      "value": "100%",
+      "number": 100,
+      "suffix": "%",
+      "label": "Commitment"
+    }
+  ],
+  "navigation": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Education", "href": "#education" },
+    { "label": "Skill", "href": "#skills" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "about": {
+    "title": "About me",
+    "content": "I am currently pursuing B.Tech in <span class=\"highlight\">Computer Science & Engineering</span> from Radharaman Institute of Technology & Science, Bhopal. My journey in this field has equipped me with a basic foundation in C programming and Python . Currently,my focus is on <span class=\"highlight\">web development</span> , where I am honing my skills in HTML, CSS, PHP,and MySQL . I believe in learning by doing, and my portfolio is a testament to this approach."
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "year": "2022",
+        "degree": "High School",
+        "institution": "Govt. Bajrang Das Higher Secondary School"
+      },
+      {
+        "year": "2025",
+        "degree": "Diploma",
+        "institution": "Dr. Bhim Rao Ambedkar Polytechnic College Gwalior"
+      },
+      {
+        "year": "2028",
+        "degree": "B. Tech (Currently Pursuing)",
+        "institution": "Radharaman Institute of Technology & Science, Bhopal, Madhya Pradesh, India"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      {
+        "title": "HTML & CSS",
+        "icon": "fa-brands fa-html5",
+        "description": "Learned the basics of web design and styling using HTML and CSS"
+      },
+      {
+        "title": "JavaScript",
+        "icon": "fa-brands fa-js",
+        "description": "Gained proficiency in JavaScript for interactive and dynamic web applications"
+      },
+      {
+        "title": "MySQL",
+        "icon": "fa-solid fa-database",
+        "description": "Gained expertise in relational databases, data management, and SQL queries with MySQL"
+      },
+      {
+        "title": "PHP",
+        "icon": "fa-brands fa-php",
+        "description": "Developed server-side web applications and dynamic content management"
+      },
+      {
+        "title": "C Programming",
+        "icon": "fa-solid fa-code",
+        "description": "Learned low-level programming concepts, memory management, and system operations using C"
+      },
+      {
+        "title": "PYTHON",
+        "icon": "fa-brands fa-python",
+        "description": "Built versatile applications with Python, focusing on scripting, and automation"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "items": [
+      {
+        "title": "Student Management Portal",
+        "description": "Full-stack web application with role-based access, student database records, grade tracking, and dynamic PDF reporting.",
+        "tags": ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
+        "icon": "fa-solid fa-graduation-cap",
+        "githubUrl": "https://github.com",
+        "liveUrl": "#"
+      },
+      {
+        "title": "Interactive Cyber Portfolio",
+        "description": "Dynamic developer portfolio driven entirely by external JSON data with ambient particle canvas and reactive glassmorphism.",
+        "tags": ["HTML5", "CSS3", "JavaScript", "JSON"],
+        "icon": "fa-solid fa-laptop-code",
+        "githubUrl": "https://github.com",
+        "liveUrl": "#"
+      },
+      {
+        "title": "Python Automation & Scripting Suite",
+        "description": "Versatile automation tool for file batch renaming, system maintenance, and automated data scraping with Python.",
+        "tags": ["Python", "SQL", "Automation"],
+        "icon": "fa-solid fa-robot",
+        "githubUrl": "https://github.com",
+        "liveUrl": "#"
+      }
+    ]
+  },
+  "contact": {
+    "titlePrefix": "Contact",
+    "titleHighlight": "Me",
+    "inputs": [
+      { "name": "fullName", "type": "text", "placeholder": "Full Name", "required": true },
+      { "name": "email", "type": "email", "placeholder": "Email", "required": true },
+      { "name": "phoneNumber", "type": "tel", "placeholder": "Phone Number", "required": false },
+      { "name": "subject", "type": "text", "placeholder": "Subject", "required": false }
+    ],
+    "messagePlaceholder": "Your Message",
+    "submitButtonText": "Send Message"
+  },
+  "footer": {
+    "navLinks": [
+      { "label": "FAQS", "href": "#" },
+      { "label": "About", "href": "#about" },
+      { "label": "Education", "href": "#education" },
+      { "label": "Skill", "href": "#skills" },
+      { "label": "Projects", "href": "#projects" },
+      { "label": "Contact", "href": "#contact" }
+    ]
+  }
+}

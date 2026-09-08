@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Sikheriya | Portfolio</title>
+    <meta name="description" content="Personal portfolio of Pankaj Sikheriya, Computer Science & Engineering student and Web Developer.">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Ambient Canvas & Background Lighting -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="ambient-orb ambient-orb-3"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header>
+        <nav class="navbar">
+            <div class="logo" id="brand-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span class="logo-first" id="logo-first">Pankaj</span>
+                <span class="logo-last" id="logo-last">Sikheriya</span>
+            </div>
+
+            <ul class="nav-links" id="nav-list">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skill</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ================= HERO / HOME ================= -->
+    <section id="home" class="section home">
+        <div class="home-grid">
+            <div class="home-content reveal">
+                <!-- Availability Status Badge -->
+                <div class="availability-badge" id="availability-badge">
+                    <span class="status-dot"></span>
+                    <span id="availability-text">Available for Projects &amp; Hire</span>
+                </div>
+
+                <h1>
+                    <span id="hero-greeting">Hi, It's</span>
+                    <span class="name-highlight" id="hero-name">Pankaj</span>
+                </h1>
+
+                <h2>
+                    <span id="hero-tagline">I'm a</span>
+                    <span class="typed-text" id="typed-text"></span><span class="cursor">&nbsp;</span>
+                </h2>
+
+                <!-- Action CTA Buttons -->
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary" id="hero-cta-contact">
+                        <i class="fa-solid fa-paper-plane"></i> Let's Talk
+                    </a>
+                    <a href="#" class="btn-outline" id="hero-cta-resume">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download CV
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links" id="hero-socials">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/pankaj-sikheriya-373b50434?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Glowing Oval Hero Image Badge -->
+            <div class="home-image reveal">
+                <div class="image-glow-frame">
+                    <img id="hero-img" src="assets/hero.jpg" alt="Developer Illustration">
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Counter Strip -->
+        <div class="stats-strip reveal" id="stats-strip">
+            <div class="stat-item">
+                <div class="stat-number" data-target="12" data-suffix="+">0+</div>
+                <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="3" data-suffix="+">0+</div>
+                <div class="stat-label">Years Learning</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="8" data-suffix="+">0+</div>
+                <div class="stat-label">Core Technologies</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+                <div class="stat-label">Commitment</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="section about-section reveal">
+        <div class="heading-wrapper">
+            <h2 class="heading" id="about-heading">About me</h2>
+            <div class="heading-underline"></div>
+        </div>
+
+        <div class="about-content" id="about-content">
+            <p>
+                I am currently pursuing B.Tech in <span class="highlight">Computer Science & Engineering</span> from Radharaman Institute of Technology & Science, Bhopal. My journey in this field has equipped me with a basic foundation in C programming and Python . Currently,my focus is on <span class="highlight">web development</span> , where I am honing my skills in HTML, CSS, PHP,and MySQL . I believe in learning by doing, and my portfolio is a testament to this approach.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= EDUCATION SECTION ================= -->
+    <section id="education" class="section education-section reveal">
+        <div class="heading-wrapper">
+            <h2 class="heading" id="education-heading">Education</h2>
+            <div class="heading-underline"></div>
+        </div>
+
+        <div class="timeline-list" id="education-list">
+            <div class="timeline-card">
+                <div class="card-year">2022</div>
+                <div class="card-title">High School</div>
+                <div class="card-desc">Govt. Bajrang Das Higher Secondary School</div>
+            </div>
+
+            <div class="timeline-card">
+                <div class="card-year">2025</div>
+                <div class="card-title">Diploma</div>
+                <div class="card-desc">Dr. Bhim Rao Ambedkar Polytechnic College Gwalior</div>
+            </div>
+
+            <div class="timeline-card">
+                <div class="card-year">2028</div>
+                <div class="card-title">B. Tech (Currently Pursuing)</div>
+                <div class="card-desc">Radharaman Institute of Technology & Science, Bhopal, Madhya Pradesh, India</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SKILLS SECTION ================= -->
+    <section id="skills" class="section skills-section reveal">
+        <div class="heading-wrapper">
+            <h2 class="heading" id="skills-heading">Skills</h2>
+            <div class="heading-underline"></div>
+        </div>
+
+        <div class="skills-list" id="skills-list">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+                <div class="skill-name">HTML & CSS</div>
+                <div class="skill-desc">Learned the basics of web design and styling using HTML and CSS</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-desc">Gained proficiency in JavaScript for interactive and dynamic web applications</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+                <div class="skill-name">MySQL</div>
+                <div class="skill-desc">Gained expertise in relational databases, data management, and SQL queries with MySQL</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
+                <div class="skill-name">PHP</div>
+                <div class="skill-desc">Developed server-side web applications and dynamic content management</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="skill-name">C Programming</div>
+                <div class="skill-desc">Learned low-level programming concepts, memory management, and system operations using C</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+                <div class="skill-name">PYTHON</div>
+                <div class="skill-desc">Built versatile applications with Python, focusing on scripting, and automation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS SECTION ================= -->
+    <section id="projects" class="section projects-section reveal">
+        <div class="heading-wrapper">
+            <h2 class="heading">Featured <span class="highlight">Projects</span></h2>
+            <div class="heading-underline"></div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+            <div class="project-card">
+                <div>
+                    <div class="project-header">
+                        <div class="project-icon-box">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="GitHub Code">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link-btn" aria-label="Live Demo">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-title">Student Management Portal</div>
+                    <div class="project-desc">Full-stack web application with role-based access, student database records, grade tracking, and dynamic PDF reporting.</div>
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">PHP</span>
+                    <span class="project-tag">MySQL</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">HTML/CSS</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <div class="project-header">
+                        <div class="project-icon-box">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="GitHub Code">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link-btn" aria-label="Live Demo">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-title">Interactive Cyber Portfolio</div>
+                    <div class="project-desc">Dynamic developer portfolio driven entirely by external JSON data with ambient particle canvas and reactive glassmorphism.</div>
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">HTML5</span>
+                    <span class="project-tag">CSS3</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">JSON</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <div class="project-header">
+                        <div class="project-icon-box">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="GitHub Code">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link-btn" aria-label="Live Demo">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-title">Python Automation & Scripting Suite</div>
+                    <div class="project-desc">Versatile automation tool for file batch renaming, system maintenance, and automated data scraping with Python.</div>
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">SQL</span>
+                    <span class="project-tag">Automation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" class="section contact-section reveal">
+        <div class="heading-wrapper">
+            <h2 class="heading">
+                <span id="contact-title-prefix">Contact</span>
+                <span class="highlight" id="contact-title-highlight">Me</span>
+            </h2>
+            <div class="heading-underline"></div>
+        </div>
+
+        <div class="contact-container">
+            <form class="contact-form" id="contact-form">
+                <div class="contact-inputs" id="contact-inputs">
+                    <input type="text" name="fullName" class="contact-pill-input" placeholder="Full Name" required>
+                    <input type="email" name="email" class="contact-pill-input" placeholder="Email" required>
+                    <input type="tel" name="phoneNumber" class="contact-pill-input" placeholder="Phone Number">
+                    <input type="text" name="subject" class="contact-pill-input" placeholder="Subject">
+                </div>
+
+                <div class="contact-message-group">
+                    <textarea name="message" id="contact-textarea" class="contact-textarea" placeholder="Your Message" required></textarea>
+                    <button type="submit" id="contact-submit-btn" class="btn-send">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="footer-socials" id="footer-socials">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pankaj-sikheriya-373b50434?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+
+        <ul class="footer-nav" id="footer-nav">
+            <li><a href="#">FAQS</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="footer-credit">
+            © 2026 Pankaj Sikheriya • Designed with Passion
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
